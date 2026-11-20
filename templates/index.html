@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VibeAPI | Developer Console</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">V</div><div><b>VibeAPI</b><small>DEVELOPER CONSOLE</small></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <a class="nav active" href="/">▦ <span>Overview</span></a>
+    <a class="nav" href="#endpoints">⌘ <span>API endpoints</span></a>
+    <a class="nav" href="#security">◈ <span>Security lab</span></a>
+    <div class="side-bottom"><span class="status-dot"></span> Local environment <small>127.0.0.1</small></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="crumb">Workspace <span>/</span> Overview</div><div class="top-right"><span class="local-pill">● LOCAL LAB</span><div class="avatar">K</div></div></header>
+    <section class="welcome">
+      <div><div class="eyebrow">API WORKSPACE</div><h1>Good afternoon, Developer.</h1><p>Explore your API, inspect responses, and validate security findings in a controlled lab.</p></div>
+      <div class="hero-icon">{"</>"}</div>
+    </section>
+    <section class="stats">
+      <article class="stat"><div class="stat-top"><span>API ROUTES</span><b>↗</b></div><strong>05</strong><small>Available endpoints</small></article>
+      <article class="stat"><div class="stat-top"><span>TEST USERS</span><b>♙</b></div><strong>02</strong><small>Dummy records only</small></article>
+      <article class="stat"><div class="stat-top"><span>LAB FINDINGS</span><b>◇</b></div><strong>04</strong><small>Intentional test cases</small></article>
+      <article class="stat"><div class="stat-top"><span>ENVIRONMENT</span><b>●</b></div><strong class="green">LOCAL</strong><small>Bound to 127.0.0.1</small></article>
+    </section>
+    <section class="content-grid">
+      <div class="panel" id="endpoints">
+        <div class="panel-head"><div><div class="eyebrow">REFERENCE</div><h2>API endpoints</h2></div><span class="tag">REST API</span></div>
+        <p class="muted">Select an endpoint to view its response in the console.</p>
+        <div class="endpoint-list">
+          <button class="endpoint" data-url="/api/users"><span class="method get">GET</span><span><b>/api/users</b><small>Returns user records</small></span><span class="arrow">↗</span></button>
+          <button class="endpoint" data-url="/api/users/1"><span class="method get">GET</span><span><b>/api/users/1</b><small>Returns user by ID</small></span><span class="arrow">↗</span></button>
+          <button class="endpoint" data-url="/api/users/2"><span class="method get">GET</span><span><b>/api/users/2</b><small>Returns user by ID</small></span><span class="arrow">↗</span></button>
+          <button class="endpoint" data-url="/api/debug/config"><span class="method get">GET</span><span><b>/api/debug/config</b><small>Runtime configuration</small></span><span class="arrow">↗</span></button>
+          <button class="endpoint" data-url="/api/crash"><span class="method get">GET</span><span><b>/api/crash</b><small>Intentional error test</small></span><span class="arrow">↗</span></button>
+        </div>
+      </div>
+      <div class="panel console-panel">
+        <div class="panel-head"><div><div class="eyebrow">LIVE RESPONSE</div><h2>Response console</h2></div><span class="tag dark-tag" id="response-status">READY</span></div>
+        <div class="console-meta"><span>GET</span><code id="response-url">Select an endpoint</code></div>
+        <pre id="response-output"><span class="placeholder">// API response will appear here.</span>
+ // Choose an endpoint from the list.
+ // This lab uses fictional test records.</pre>
+        <div class="console-foot"><span><i class="status-dot"></i> Local API</span><span id="response-time">Waiting for request</span></div>
+      </div>
+    </section>
+    <section class="panel security" id="security">
+      <div class="panel-head"><div><div class="eyebrow">VIBEGUARD TESTING</div><h2>Security test cases</h2></div><span class="tag warn-tag">INTENTIONALLY VULNERABLE</span></div>
+      <div class="finding-grid">
+        <div class="finding"><span class="finding-id">VA-01</span><b>Hardcoded secrets</b><small>Fake keys in config.py</small></div>
+        <div class="finding"><span class="finding-id">VA-02</span><b>Sensitive data exposure</b><small>User API returns extra fields</small></div>
+        <div class="finding"><span class="finding-id">VA-03</span><b>Debug information exposure</b><small>Config and stack trace endpoints</small></div>
+        <div class="finding"><span class="finding-id">VA-04</span><b>Insecure dependencies</b><small>Old versions in scan-only file</small></div>
+      </div>
+      <div class="notice"><b>Safety reminder</b><span>This intentionally vulnerable application is for localhost testing only. Never deploy it publicly. Do not install requirements-vulnerable.txt.</span></div>
+    </section>
+    <footer>VibeAPI Developer Console <span>Built for local security testing</span></footer>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body></html>
